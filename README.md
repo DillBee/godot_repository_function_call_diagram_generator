@@ -1,8 +1,7 @@
-# godot_repository_function_call_diagram_generator
-Generates a dynamically sized and interlinked function call diagram from an established godot repo
+# Godot Repo Line Counter
+Full version will be a Godot Repository Function Call Diagram Generator, generating a dynamically sized and interlinked function call diagram from an established godot repo.
 
-Currently functional as a line counter
-Function Call Diagram generation is not currently live.
+Currently solely functional as a line counter; Function Call Diagram generation is not currently live.
 
 #
 Readme for current release below
