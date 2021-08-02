@@ -90,18 +90,22 @@ debug_repo_path = r"C:\Users\newwb\Documents\Godot\project folders\testproj_dodg
 # else use default blank value and input
 repo_path = ""
 
-# validation for user
-# make sure they can exit the program if they wish
-# validate a passed folder path, make sure it is valid before continuing
-# make this its own function to clean up main?
-while not path.exists(repo_path):
-    print("To get a code line count, enter your godot folder path.")
-    print("Alternatively, type 'q', 'quit', or 'exit', to stop the program.")
-    repo_path = input("Please enter an input now: ")
-    if repo_path.lower() in ["q", "quit", "exit"]:
-        print("Exiting!")
-        break
-    print("Given file path is not valid!\n")
+# skip validation if debugging
+if constant.DEBUG_FILE_PATH:
+    repo_path = debug_repo_path
+else:
+    # validation for user
+    # make sure they can exit the program if they wish
+    # validate a passed folder path, make sure it is valid before continuing
+    # make this its own function to clean up main?
+    while not path.exists(repo_path):
+        print("To get a code line count, enter your godot folder path.")
+        print("Alternatively, type 'q', 'quit', or 'exit', to stop the program.")
+        repo_path = input("Please enter an input now: ")
+        if repo_path.lower() in ["q", "quit", "exit"]:
+            print("Exiting!")
+            break
+        print("Given file path is not valid!\n")
 
 # if repository path exists can begin running program functions on it
 if path.exists(repo_path):
