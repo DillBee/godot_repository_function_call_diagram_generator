@@ -105,7 +105,9 @@ else:
         if repo_path.lower() in ["q", "quit", "exit"]:
             print("Exiting!")
             break
-        print("Given file path is not valid!\n")
+        # include this qualifier so it doesn't print on valid exit
+        elif not path.exists(repo_path):
+            print("Given file path is not valid!\n")
 
 # if repository path exists can begin running program functions on it
 if path.exists(repo_path):
@@ -128,3 +130,4 @@ if path.exists(repo_path):
               + str(total_lines_of_code_with_empty_lines))
         print("Total Lines of Code in Godot Repo (exc. empty or commented out lines): "
               + str(total_lines_of_code_without_null_lines))
+    input("\nPress any key to exit.")
