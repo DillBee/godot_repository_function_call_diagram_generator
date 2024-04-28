@@ -118,6 +118,7 @@ if path.exists(repo_path):
         if constant.COUNT_CODE_LINES:
             total_lines_of_code_with_empty_lines += get_code_length(code_body, False)
             total_lines_of_code_without_null_lines += get_code_length(code_body, True)
+        total_number_of_script_files = len(get_valid_files(repo_path))
 
         # TODO >> (deco?) extension for get_valid_files to collect all file names
         # TODO >> introduce function for identifying 'func' lines inside gdscripts
@@ -126,8 +127,10 @@ if path.exists(repo_path):
 
     # if count total lines of code is enabled, must print an output of the count
     if constant.COUNT_CODE_LINES:
-        print("Total Lines of Code in Godot Project (inc. all lines): "
+        print("Total Number of Scripts: "
+              + str(total_number_of_script_files))
+        print("Total Lines of Code (inc. all lines): "
               + str(total_lines_of_code_with_empty_lines))
-        print("Total Lines of Code in Godot Project (exc. empty or commented out lines): "
+        print("Total Lines of Code (exc. empty or commented out lines): "
               + str(total_lines_of_code_without_null_lines))
     input("\nPress any key to exit.")
