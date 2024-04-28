@@ -26,7 +26,7 @@ def get_valid_files(given_path, valid_extension=".gd"):
             # if the extension (ending characters) isn't a three character sequence of '.gd', ignore it
             if file_extension == valid_extension:
                 # escape the backslash or it is treated as an escape sequence (causing EOF error)
-                file_path = directory_path + "\\" + file
+                file_path = directory_path + "/" + file
                 full_file_list[file_path] = file_name
 
     return full_file_list
