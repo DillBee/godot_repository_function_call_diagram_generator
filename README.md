@@ -1,29 +1,10 @@
-# Godot Repo Line Counter
-Full version will be a Godot Repository Function Call Diagram Generator, generating a dynamically sized and interlinked function call diagram from an established godot repo.
+# Godot Repo Line Counter for Linux
+Currently solely functional as a line counter;
 
-Currently solely functional as a line counter; Function Call Diagram generation is not currently live.
-
-#
-Readme for current release below
-#
-
-GDScript Line Counter
+GDScript Line Counter for Linux
 v1.0
 
-by Daniel Newby aka @DanDoesAThing
-
-https://github.com/newwby
-https://dandoesathing.itch.io/
-http://instagram.com/dandoesathing
-https://dandoesathing.com/
-https://www.reddit.com/user/DanDoesAThing
-https://twitter.com/DanDoesAThing
-
-=======================================================
-
-Godot repository scanner for counting lines of code in any project. Reads through a folder and all sub-folders, identifying file paths that end in '.gd', before counting the total lines of code.
-
-Executable and source-only versions available.
+original release by Daniel Newby aka @DanDoesAThing
 
 =======================================================
 
