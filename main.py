@@ -76,6 +76,14 @@ def get_code_length(code_to_parse, remove_null_lines=False):
     # but subtract 1 if only interested in actual lines
     return len(code_to_parse)
 
+# Return a count of all lines of code in the file that begin with 'func'
+def get_code_functions_length(code_to_parse):
+    counter = 0
+    for list_item_line in code_to_parse:
+        if list_item_line.rfind('func ') == 0:
+            counter += 1
+    return counter
+
 
 #######################################################################################################################
 
@@ -83,6 +91,7 @@ def get_code_length(code_to_parse, remove_null_lines=False):
 # variables for code line counting
 total_lines_of_code_with_empty_lines = 0
 total_lines_of_code_without_null_lines = 0
+total_number_of_functions = 0
 # variables for godot repository folder paths
 # debug value so don't have to keep typing in whilst testing
 # raw string to prevent escape sequence errors
@@ -118,6 +127,7 @@ if path.exists(repo_path):
         if constant.COUNT_CODE_LINES:
             total_lines_of_code_with_empty_lines += get_code_length(code_body, False)
             total_lines_of_code_without_null_lines += get_code_length(code_body, True)
+            total_number_of_functions += get_code_functions_length(code_body)
         total_number_of_script_files = len(get_valid_files(repo_path))
 
         # TODO >> (deco?) extension for get_valid_files to collect all file names
@@ -129,8 +139,10 @@ if path.exists(repo_path):
     if constant.COUNT_CODE_LINES:
         print("Total Number of Scripts: "
               + str(total_number_of_script_files))
+        print("Total Number of Functions: "
+              + str(total_number_of_functions))
         print("Total Lines of Code (inc. all lines): "
               + str(total_lines_of_code_with_empty_lines))
         print("Total Lines of Code (exc. empty or commented out lines): "
               + str(total_lines_of_code_without_null_lines))
-    input("\nPress any key to exit.")
+    #input("\nPress any key to exit.")
