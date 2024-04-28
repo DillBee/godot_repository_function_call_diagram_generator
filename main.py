@@ -100,8 +100,8 @@ else:
     # make this its own function to clean up main?
     while not path.exists(repo_path):
         print("To get a code line count, enter your godot folder path.")
-        print("Alternatively, type 'q', 'quit', or 'exit', to stop the program.")
-        repo_path = input("Please enter an input now: ")
+        print("Alternatively, type 'q', 'quit', or 'exit', to stop the program.\n")
+        repo_path = input("Please enter the path to your godot project directory: ")
         if repo_path.lower() in ["q", "quit", "exit"]:
             print("Exiting!")
             break
@@ -111,7 +111,7 @@ else:
 
 # if repository path exists can begin running program functions on it
 if path.exists(repo_path):
-    print("\nFile Path:", repo_path)
+    print("----------\n")
     # yield/generator of the contents of every .gd file inside the folder and its sub-folders
     for code_body in get_file_contents(get_valid_files(repo_path), False):
         # if count total lines of code is enabled, must collect value of total lines
@@ -126,8 +126,8 @@ if path.exists(repo_path):
 
     # if count total lines of code is enabled, must print an output of the count
     if constant.COUNT_CODE_LINES:
-        print("Total Lines of Code in Godot Repo (inc. all lines): "
+        print("Total Lines of Code in Godot Project (inc. all lines): "
               + str(total_lines_of_code_with_empty_lines))
-        print("Total Lines of Code in Godot Repo (exc. empty or commented out lines): "
+        print("Total Lines of Code in Godot Project (exc. empty or commented out lines): "
               + str(total_lines_of_code_without_null_lines))
     input("\nPress any key to exit.")
